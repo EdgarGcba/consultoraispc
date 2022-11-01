@@ -10,7 +10,7 @@
         <h4 class="card-title">Buscar Postulantes</h4>
         <div class="body">
             <form method='POST' action=''>{% csrf_token %}
-            {{form|crispy}}
+            {{form}}
                 <input class = "btn btn-success"  type="submit" value='Buscar'/>
             </form>
         </div>
