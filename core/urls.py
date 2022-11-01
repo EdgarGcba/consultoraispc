@@ -24,4 +24,5 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('consultora.urls'))
+    url(r'^$', view)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
