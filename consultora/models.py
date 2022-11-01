@@ -81,8 +81,8 @@ class PostulanteTecnologia(models.Model):
     estado = models.ForeignKey(Estado, on_delete=models.CASCADE, max_length=50, blank=True, null=True)
     descripcion = models.CharField(max_length=250, blank=True, null=True)
 
-    def __str__(self):
-        return self.postulante + self.tecnologia
+    
+    
 
     
  
