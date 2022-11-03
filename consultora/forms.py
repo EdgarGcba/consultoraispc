@@ -5,9 +5,21 @@ class PostulanteCrearForm(forms.ModelForm):
 
     fechanacimiento = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Fecha de Nacimiento')
     documento = forms.ModelChoiceField(queryset=Documento.objects.all())
+
     class Meta:
         model = Postulante
         fields = '__all__'
+    
+    def __init__(self, *args, **kwargs):
+        if kwargs.get('instance'):
+            initial = kwargs.setdefault('initial', {})
+            if kwargs['instance'].groups.all():
+                initial['documento'] = kwargs['instance'].groups.all()[0]
+            else:
+                initial['documento'] = None
+        forms.ModelForm.__init__(self, *args, **kwargs)
+
+
     
 
 class PostulanteSearchForm(forms.ModelForm):
