@@ -1,12 +1,13 @@
 from django import forms
 from .models import *
 
-class PostulanteCrearForm(forms.ModelForm):   
-    
+class PostulanteCrearForm(forms.ModelForm):
+
+    fechanacimiento = forms.DateField(required=False)
     class Meta:
         model = Postulante
         fields = '__all__'
-    fechanacimiento = forms.DateField(required=False)
+    
 
 class PostulanteSearchForm(forms.ModelForm):
    class Meta:
