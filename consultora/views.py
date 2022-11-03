@@ -104,7 +104,6 @@ def busquedaLaboral(request, id):
     organizacion = Organizacion.objects.get(id=id)
     formulario = BusquedaLaboralForm(request.POST or None, request.FILES or None)
     if formulario.is_valid():
-        tecnologia=request.POST.get('tecnologia')
         formulario.save()
         return redirect ('organizaciones')
     return render(request, 'organizaciones/busquedaLaboral.html', {'formulario': formulario})
