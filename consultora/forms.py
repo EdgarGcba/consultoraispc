@@ -37,7 +37,15 @@ class BusquedaLaboralForm(forms.ModelForm):
 
     fechaApertura = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Fecha de Apertura')
     fechaCierre = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Fecha de Cierre')
-    tecnologia = forms.ModelMultipleChoiceField(queryset=Tecnologia.objects.all(), widget=forms.CheckboxSelectMultiple(attrs={'type': 'select'}))
+    tecnologia = forms.ModelMultipleChoiceField(queryset=Tecnologia.objects.all())
+
+    def save(self, commit=True):
+       instance = super().save(commit=False)
+       tec = self.cleaned_data['tecnologia']
+       instance.tecnologia = tec[0]
+       instance.save(commit)
+       return instance
+
     class Meta:
         model = BusquedaLaboral
         fields = '__all__'
