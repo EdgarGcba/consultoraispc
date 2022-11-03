@@ -6,6 +6,8 @@ class PostulanteCrearForm(forms.ModelForm):
     class Meta:
         model = Postulante
         fields = '__all__'
+    fechanacimiento = forms.DateField(required=False)
+
 class PostulanteSearchForm(forms.ModelForm):
    class Meta:
      model = Postulante
