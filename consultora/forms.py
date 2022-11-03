@@ -35,8 +35,8 @@ class OrganizacionForm(forms.ModelForm):
 
 class BusquedaLaboralForm(forms.ModelForm):   
 
-    fechaApertura = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Fecha de Nacimiento')
-    fechaCierre = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Fecha de Nacimiento')
+    fechaApertura = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Fecha de Apertura')
+    fechaCierre = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Fecha de Cierre')
     tecnologia = forms.ModelMultipleChoiceField(queryset=Tecnologia.objects.all(), widget=forms.CheckboxSelectMultiple(attrs={'type': 'select'}))
     class Meta:
         model = BusquedaLaboral
