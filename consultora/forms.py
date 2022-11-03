@@ -3,7 +3,8 @@ from .models import *
 
 class PostulanteCrearForm(forms.ModelForm):
 
-    fechanacimiento = forms.DateField(required=False)
+    fechanacimiento = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}),
+        label='Fecha de Nacimiento')
     class Meta:
         model = Postulante
         fields = '__all__'
