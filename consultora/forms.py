@@ -37,7 +37,7 @@ class BusquedaLaboralForm(forms.ModelForm):
 
     fechaApertura = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Fecha de Apertura')
     fechaCierre = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Fecha de Cierre')
-    tecnologia = forms.ModelMultipleChoiceField(choices=[(x.id,x.name) for x in Tecnologia.objects.all()])
+    tecnologia = forms.ModelMultipleChoiceField(choices=[(x.id,x.nombre) for x in Tecnologia.objects.all()])
 
     def save(self, commit=True):
        instance = super().save(commit=False)
