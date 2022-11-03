@@ -4,6 +4,16 @@ from .models import *
 class PostulanteCrearForm(forms.ModelForm):
 
     fechanacimiento = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Fecha de Nacimiento')
+    documento = forms.ChoiceField(
+        choices=[(x.id,x.tipo) for x in Documento.objects.all()]
+         )
+
+    def save(self, commit=True):
+      instance = super().save(commit=False)
+      doc = self.cleaned_data['documento']
+      instance.publication = Documento.objects.get(pk=doc)
+      instance.save(commit)
+      return instance
     class Meta:
         model = Postulante
         fields = '__all__'
