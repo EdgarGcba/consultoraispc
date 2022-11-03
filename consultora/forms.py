@@ -3,8 +3,7 @@ from .models import *
 
 class PostulanteCrearForm(forms.ModelForm):
 
-    fechanacimiento = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}),
-        label='Fecha de Nacimiento')
+    fechanacimiento = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Fecha de Nacimiento')
     class Meta:
         model = Postulante
         fields = '__all__'
@@ -36,12 +35,15 @@ class OrganizacionForm(forms.ModelForm):
 
 class BusquedaLaboralForm(forms.ModelForm):   
 
+    fechaApertura = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Fecha de Nacimiento')
+    fechaCierre = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Fecha de Nacimiento')
+    tecnologia = forms.ModelMultipleChoiceField(queryset=Tecnologia.objects.all(), widget=forms.CheckboxSelectMultiple(attrs={'type': 'select'}))
     class Meta:
         model = BusquedaLaboral
         fields = '__all__'
     
-    tecnologia = forms.ModelMultipleChoiceField(
-        queryset=Tecnologia.objects.all(), widget=forms.CheckboxSelectMultiple)
-    fechaApertura = forms.DateField()
-    fechaCierre = forms.DateField()
+    
+    
+    
+    
 
