@@ -4,8 +4,7 @@ from .models import *
 class PostulanteCrearForm(forms.ModelForm):
 
     fechanacimiento = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), label='Fecha de Nacimiento')
-    tipodocumento = forms.ModelChoiceField(widget=forms.SelectMultiple(attrs={'type': 'select'}), queryset=Documento.objects.all())
-
+    barrio = forms.ModelChoiceField(queryset=Barrio.objects.all())
     class Meta:
         model = Postulante
         fields = '__all__'
