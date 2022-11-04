@@ -54,7 +54,7 @@ class Postulante(models.Model):
     id = models.AutoField(primary_key=True)  
     nombre = models.CharField(max_length=25)  
     apellido = models.CharField(max_length=25)  
-    documento = models.ForeignKey(Documento,on_delete=models.CASCADE, max_length=50, blank=True, null=True, verbose_name = 'Tipo de Documento')
+    tipodocumento = models.ForeignKey(Documento,on_delete=models.CASCADE, max_length=50, blank=True, null=True, verbose_name = 'Tipo de Documento')
     numdocumento = models.CharField(max_length=25, blank=True, null=True, verbose_name = 'Numero de Documento')
     fechanacimiento = models.DateField(blank=True, null=True, verbose_name = 'Fecha de Nacimiento')
     direccion = models.CharField(max_length=100, blank=True, null=True)
